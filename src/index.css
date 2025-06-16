@@ -1,103 +1,109 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* Definition of the design system. All colors, gradients, fonts, etc. */
 
 @layer base {
   :root {
-    --background: 250 250 250; /* #FAFAFA - Soft White */
-    --foreground: 46 46 46; /* #2E2E2E - Charcoal Grey */
+    /* Core colors (as RGB triplets) */
+    --background:            250, 250, 250; /* #FAFAFA – Soft White */
+    --foreground:             46,  46,  46; /* #2E2E2E – Charcoal Grey */
 
-    --card: 250 250 250; /* #FAFAFA */
-    --card-foreground: 46 46 46; /* #2E2E2E */
+    --card:                  250, 250, 250;
+    --card-foreground:        46,  46,  46;
 
-    --popover: 250 250 250; /* #FAFAFA */
-    --popover-foreground: 46 46 46; /* #2E2E2E */
+    --popover:               250, 250, 250;
+    --popover-foreground:     46,  46,  46;
 
-    --primary: 41 82 163; /* #2952A3 - Prism Blue */
-    --primary-foreground: 250 250 250; /* #FAFAFA */
+    --primary:                41,  82, 163; /* #2952A3 – Prism Blue */
+    --primary-foreground:    250, 250, 250;
 
-    --secondary: 224 224 224; /* #E0E0E0 - Light Silver */
-    --secondary-foreground: 46 46 46; /* #2E2E2E */
+    --secondary:             224, 224, 224; /* #E0E0E0 – Light Silver */
+    --secondary-foreground:   46,  46,  46;
 
-    --muted: 224 224 224; /* #E0E0E0 */
-    --muted-foreground: 110 110 110; /* #6E6E6E - Cool Grey */
+    --muted:                 224, 224, 224;
+    --muted-foreground:      110, 110, 110; /* #6E6E6E – Cool Grey */
 
-    --accent: 123 97 255; /* #7B61FF - Electric Violet */
-    --accent-foreground: 250 250 250; /* #FAFAFA */
+    --accent:                123,  97, 255; /* #7B61FF – Electric Violet */
+    --accent-foreground:     250, 250, 250;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 250 250 250;
+    --destructive:          0%, 84.2%, 60.2%;
+    --destructive-foreground: 250, 250, 250;
 
-    --border: 224 224 224; /* #E0E0E0 - Light Silver */
-    --input: 224 224 224; /* #E0E0E0 */
-    --ring: 41 82 163; /* #2952A3 */
+    --border:                224, 224, 224;
+    --input:                 224, 224, 224;
+    --ring:                   41,  82, 163;
 
-    --radius: 0.5rem;
+    --radius:                0.5rem;
 
-    --sidebar-background: 250 250 250;
-    --sidebar-foreground: 46 46 46;
-    --sidebar-primary: 41 82 163;
-    --sidebar-primary-foreground: 250 250 250;
-    --sidebar-accent: 224 224 224;
-    --sidebar-accent-foreground: 46 46 46;
-    --sidebar-border: 224 224 224;
-    --sidebar-ring: 41 82 163;
+    /* Sidebar variants (optional) */
+    --sidebar-background:    250, 250, 250;
+    --sidebar-foreground:     46,  46,  46;
+    --sidebar-primary:        41,  82, 163;
+    --sidebar-primary-foreground: 250, 250, 250;
+    --sidebar-accent:        224, 224, 224;
+    --sidebar-accent-foreground:  46,  46,  46;
+    --sidebar-border:        224, 224, 224;
+    --sidebar-ring:           41,  82, 163;
 
-    /* Custom brand colors */
-    --prism-blue: 41 82 163; /* #2952A3 */
-    --electric-violet: 123 97 255; /* #7B61FF */
-    --mint-green: 61 220 151; /* #3DDC97 */
-    --charcoal-grey: 46 46 46; /* #2E2E2E */
-    --cool-grey: 110 110 110; /* #6E6E6E */
-    --soft-white: 250 250 250; /* #FAFAFA */
-    --light-silver: 224 224 224; /* #E0E0E0 */
+    /* Custom brand colors (repeat for clarity) */
+    --prism-blue:            41,  82, 163;
+    --electric-violet:       123,  97, 255;
+    --mint-green:             61, 220, 151;
+    --charcoal-grey:          46,  46,  46;
+    --cool-grey:             110, 110, 110;
+    --soft-white:            250, 250, 250;
+    --light-silver:          224, 224, 224;
   }
 
   .dark {
-    --background: 46 46 46;
-    --foreground: 250 250 250;
+    /* Dark mode overrides (if using) */
+    --background:            46,  46,  46;
+    --foreground:           250, 250, 250;
 
-    --card: 46 46 46;
-    --card-foreground: 250 250 250;
+    --card:                   46,  46,  46;
+    --card-foreground:      250, 250, 250;
 
-    --popover: 46 46 46;
-    --popover-foreground: 250 250 250;
+    --popover:                46,  46,  46;
+    --popover-foreground:   250, 250, 250;
 
-    --primary: 250 250 250;
-    --primary-foreground: 46 46 46;
+    --primary:              250, 250, 250;
+    --primary-foreground:     46,  46,  46;
 
-    --secondary: 110 110 110;
-    --secondary-foreground: 250 250 250;
+    --secondary:            110, 110, 110;
+    --secondary-foreground: 250, 250, 250;
 
-    --muted: 110 110 110;
-    --muted-foreground: 224 224 224;
+    --muted:                110, 110, 110;
+    --muted-foreground:     224, 224, 224;
 
-    --accent: 110 110 110;
-    --accent-foreground: 250 250 250;
+    --accent:               110, 110, 110;
+    --accent-foreground:    250, 250, 250;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 250 250 250;
+    --border:               110, 110, 110;
+    --input:                110, 110, 110;
+    --ring:                 224, 224, 224;
 
-    --border: 110 110 110;
-    --input: 110 110 110;
-    --ring: 224 224 224;
-    --sidebar-background: 46 46 46;
-    --sidebar-foreground: 250 250 250;
-    --sidebar-primary: 123 97 255;
-    --sidebar-primary-foreground: 250 250 250;
-    --sidebar-accent: 110 110 110;
-    --sidebar-accent-foreground: 250 250 250;
-    --sidebar-border: 110 110 110;
-    --sidebar-ring: 123 97 255;
+    --sidebar-background:    46,  46,  46;
+    --sidebar-foreground:   250, 250, 250;
+    --sidebar-primary:      123,  97, 255;
+    --sidebar-primary-foreground: 250, 250, 250;
+    --sidebar-accent:       110, 110, 110;
+    --sidebar-accent-foreground: 250, 250, 250;
+    --sidebar-border:       110, 110, 110;
+    --sidebar-ring:         123,  97, 255;
   }
 }
 
 @layer base {
+  /* default border on all elements */
   * {
     @apply border-border;
+  }
+
+  /* remove border from all images (including logo) */
+  img {
+    @apply border-0;
   }
 
   body {
@@ -106,65 +112,26 @@
 }
 
 @layer utilities {
-  .text-prism-blue {
-    color: hsl(var(--prism-blue));
-  }
-  
-  .bg-prism-blue {
-    background-color: hsl(var(--prism-blue));
-  }
-  
-  .text-electric-violet {
-    color: hsl(var(--electric-violet));
-  }
-  
-  .bg-electric-violet {
-    background-color: hsl(var(--electric-violet));
-  }
-  
-  .text-mint-green {
-    color: hsl(var(--mint-green));
-  }
-  
-  .bg-mint-green {
-    background-color: hsl(var(--mint-green));
-  }
-  
-  .text-charcoal-grey {
-    color: hsl(var(--charcoal-grey));
-  }
-  
-  .bg-charcoal-grey {
-    background-color: hsl(var(--charcoal-grey));
-  }
-  
-  .text-cool-grey {
-    color: hsl(var(--cool-grey));
-  }
-  
-  .bg-cool-grey {
-    background-color: hsl(var(--cool-grey));
-  }
-  
-  .text-soft-white {
-    color: hsl(var(--soft-white));
-  }
-  
-  .bg-soft-white {
-    background-color: hsl(var(--soft-white));
-  }
-  
-  .text-light-silver {
-    color: hsl(var(--light-silver));
-  }
-  
-  .bg-light-silver {
-    background-color: hsl(var(--light-silver));
-  }
-  
-  .border-light-silver {
-    border-color: hsl(var(--light-silver));
-  }
+  /* Text colors */
+  .text-prism-blue      { color: rgb(var(--prism-blue)); }
+  .text-electric-violet { color: rgb(var(--electric-violet)); }
+  .text-mint-green      { color: rgb(var(--mint-green)); }
+  .text-charcoal-grey   { color: rgb(var(--charcoal-grey)); }
+  .text-cool-grey       { color: rgb(var(--cool-grey)); }
+  .text-soft-white      { color: rgb(var(--soft-white)); }
+  .text-light-silver    { color: rgb(var(--light-silver)); }
+
+  /* Background colors */
+  .bg-prism-blue        { background-color: rgb(var(--prism-blue)); }
+  .bg-electric-violet   { background-color: rgb(var(--electric-violet)); }
+  .bg-mint-green        { background-color: rgb(var(--mint-green)); }
+  .bg-charcoal-grey     { background-color: rgb(var(--charcoal-grey)); }
+  .bg-cool-grey         { background-color: rgb(var(--cool-grey)); }
+  .bg-soft-white        { background-color: rgb(var(--soft-white)); }
+  .bg-light-silver      { background-color: rgb(var(--light-silver)); }
+
+  /* Borders */
+  .border-light-silver  { border-color: rgb(var(--light-silver)); }
 }
 
 @layer components {
@@ -173,25 +140,20 @@
     opacity: 0;
     transform: translateY(20px);
   }
-  
   .animate-fade-in-up.in-view {
     opacity: 1;
     transform: translateY(0);
   }
-  
   .hover-lift {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
   .hover-lift:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
-  
   .hover-scale {
     transition: transform 0.3s ease;
   }
-  
   .hover-scale:hover {
     transform: scale(1.05);
   }

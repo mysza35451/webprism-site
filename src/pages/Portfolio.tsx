@@ -1,3 +1,4 @@
+// src/pages/Portfolio.tsx
 
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
@@ -8,47 +9,71 @@ import PortfolioCard from '../components/PortfolioCard';
 const Portfolio = () => {
   const projects = [
     {
-      clientName: 'GlowSkin Studio',
-      industry: 'Beauty & Wellness',
-      description: 'Custom booking site with SEO-led blog content strategy and integrated appointment system.',
-      results: '+65% increase in online bookings within 3 months',
+      clientName: "Save the Children",
+      industry: "Non-profit",
+      description:
+        "Managed over 34 Boomi integrations to ensure seamless data flow between systems, including warehouse management, purchase orders, and invoices.",
+      results:
+        "+30% faster data synchronization and zero failed transactions across integrated systems",
+      imageUrl: "/images/portfolio/savethechildren-logo.png",
+      link: null,
     },
     {
-      clientName: 'Urban Contractors',
-      industry: 'Construction',
-      description: 'Professional portfolio website showcasing completed projects with client testimonials and quote request system.',
-      results: '+40% more qualified leads and improved brand credibility',
+      clientName: "Ministry of Justice",
+      industry: "Government",
+      description:
+        "Built a Nunjucks-powered site aligned with the GDS framework to modernize workforce management. Reduced query times and enabled real-time data updates.",
+      results:
+        "Cut page response times by 50% and improved scheduling accuracy for staff management",
+      imageUrl: "/images/portfolio/Ministry_of_Justice_logo.svg",
+      link: null,
     },
     {
-      clientName: 'FreshBite Catering',
-      industry: 'Food & Beverage',
-      description: 'E-commerce enabled website with online ordering system and social media integration for local catering business.',
-      results: '+80% increase in online orders and expanded service area',
+      clientName: "BPAS",
+      industry: "Healthcare",
+      description:
+        "Developed two .NET web forms (appointment requests & medical intake) and are migrating to Node.js. We also manage their Azure services and integration support.",
+      results:
+        "The forms currently handle over 500+ requests and greatly improved BPAS' workflow.",
+      imageUrl: "/images/portfolio/bpas-logo.svg",
+      link: null,
     },
     {
-      clientName: 'Elite Fitness Studio',
-      industry: 'Health & Fitness',
-      description: 'Membership management website with class booking system, trainer profiles, and nutrition blog.',
-      results: '+120% growth in class bookings and member retention',
+      clientName: "4Metal Ltd",
+      industry: "Manufacturing",
+      description:
+        "Professional company site to attract new customers with a high click-through rate and engaging service showcase.",
+      results:
+        "+65% increase in customer inquiries and improved brand perception",
+      imageUrl: "/images/portfolio/4metal-ltd-logo.png", 
+      link: "http://mysza35451.github.io/4metal/",
     },
     {
-      clientName: 'Digital Marketing Pro',
-      industry: 'Professional Services',
-      description: 'Lead generation focused website with case studies, service pages, and integrated CRM system.',
-      results: '+90% improvement in lead quality and conversion rates',
+      clientName: "EasyJet",
+      industry: "Aviation Tech",
+      description:
+        "Building and maintaining backend systems with NestJS, TypeScript, and Zod for booking management and real-time availability.",
+      results:
+        "Accelerated feature deployments by 80% with strict typing and 90%+ test coverage",
+      imageUrl: "/images/portfolio/EasyJet_logo.png",
+      link: null,
     },
     {
-      clientName: 'Artisan Coffee House',
-      industry: 'Retail & Hospitality',
-      description: 'Local coffee shop website with online ordering, loyalty program integration, and event promotion system.',
-      results: '+55% increase in online orders and customer engagement',
+      clientName: "WebPrism Limited",
+      industry: "Digital Agency",
+      description:
+        "Designed and built our corporate website with Tailwind CSS, on-page SEO optimizations, and a “Get a Quote” modal workflow.",
+      results:
+        "The developed website is managing our leads and creating work opportunities",
+      imageUrl: "/images/webprism-logo.png",
+      link: "https://webprismlimited.co.uk",
     },
   ];
 
   return (
     <div className="min-h-screen">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-prism-blue to-electric-violet">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,8 +81,11 @@ const Portfolio = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-soft-white mb-6">
               Our Portfolio
             </h1>
-            <p className="text-xl text-soft-white/90 leading-relaxed">
+            <p className="text-xl leading-relaxed text-soft-white/90 mb-4">
               We've helped businesses across London and beyond launch, grow, and scale online. Here's some of our recent work.
+            </p>
+            <p className="text-sm italic text-soft-white/80">
+              * Some of these projects were completed as part of my role at Reply Ltd, where I contributed directly to each engagement.
             </p>
           </div>
         </div>
@@ -74,6 +102,7 @@ const Portfolio = () => {
                 industry={project.industry}
                 description={project.description}
                 results={project.results}
+                imageUrl={project.imageUrl ?? undefined}
               />
             ))}
           </div>
@@ -87,7 +116,7 @@ const Portfolio = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-charcoal-grey mb-4">
               Results That Matter
             </h2>
-            <p className="text-xl text-cool-grey">
+            <p className="text-xl text-prism-blue">
               Our clients see real, measurable improvements in their online performance.
             </p>
           </div>
@@ -135,8 +164,11 @@ const Portfolio = () => {
               'Retail & E-commerce',
               'Education',
               'Technology'
-            ].map((industry, index) => (
-              <div key={index} className="bg-light-silver/20 p-6 rounded-lg text-center border border-light-silver hover:border-prism-blue/30 transition-colors">
+            ].map((industry, idx) => (
+              <div
+                key={idx}
+                className="bg-light-silver/20 p-6 rounded-lg text-center border border-light-silver hover:border-prism-blue/30 transition-colors"
+              >
                 <p className="font-medium text-charcoal-grey">{industry}</p>
               </div>
             ))}
