@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import QuoteModal from './QuoteModal';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,12 +18,12 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-white shadow-sm fixed w-full top-0 z-50">
+    <nav className="bg-soft-white shadow-sm fixed w-full top-0 z-50 border-b border-light-silver">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-blue-600">WebPrism</span>
-            <span className="text-gray-600 ml-1">Limited</span>
+            <span className="text-2xl font-bold text-prism-blue">WebPrism</span>
+            <span className="text-cool-grey ml-1">Limited</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -33,25 +34,20 @@ const Navigation = () => {
                 to={item.path}
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
                   isActive(item.path)
-                    ? 'text-blue-600 border-b-2 border-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-prism-blue border-b-2 border-prism-blue'
+                    : 'text-charcoal-grey hover:text-prism-blue'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-            >
-              Get Quote
-            </Link>
+            <QuoteModal />
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-charcoal-grey hover:text-prism-blue"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -59,7 +55,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-white border-t">
+          <div className="md:hidden bg-soft-white border-t border-light-silver">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <Link
@@ -67,21 +63,17 @@ const Navigation = () => {
                   to={item.path}
                   className={`block px-3 py-2 text-base font-medium ${
                     isActive(item.path)
-                      ? 'text-blue-600 bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                      ? 'text-prism-blue bg-prism-blue/5'
+                      : 'text-charcoal-grey hover:text-prism-blue hover:bg-gray-50'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Link
-                to="/contact"
-                className="block w-full text-center bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors mt-4"
-                onClick={() => setIsOpen(false)}
-              >
-                Get Quote
-              </Link>
+              <div className="px-3 py-2">
+                <QuoteModal />
+              </div>
             </div>
           </div>
         )}

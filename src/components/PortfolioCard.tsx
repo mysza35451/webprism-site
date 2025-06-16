@@ -9,27 +9,29 @@ interface PortfolioCardProps {
 
 const PortfolioCard = ({ clientName, industry, description, results, imageUrl }: PortfolioCardProps) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative">
+    <div className="bg-soft-white rounded-xl shadow-sm border border-light-silver overflow-hidden hover-lift group transition-all duration-300 hover:border-prism-blue/30">
+      <div className="h-48 bg-gradient-to-br from-prism-blue to-electric-violet relative overflow-hidden">
         {imageUrl ? (
-          <img src={imageUrl} alt={clientName} className="w-full h-full object-cover" />
+          <img src={imageUrl} alt={clientName} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-white text-center">
+          <div className="w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+            <div className="text-soft-white text-center">
               <div className="text-2xl font-bold mb-2">{clientName}</div>
-              <div className="text-blue-100">{industry}</div>
+              <div className="text-soft-white/80">{industry}</div>
             </div>
           </div>
         )}
       </div>
       <div className="p-6">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl font-semibold text-gray-900">{clientName}</h3>
-          <span className="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full">{industry}</span>
+          <h3 className="text-xl font-semibold text-prism-blue">{clientName}</h3>
+          <span className="text-sm text-electric-violet bg-electric-violet/10 px-3 py-1 rounded-full font-medium">
+            {industry}
+          </span>
         </div>
-        <p className="text-gray-600 mb-4 leading-relaxed">{description}</p>
-        <div className="bg-green-50 p-4 rounded-lg">
-          <p className="text-green-800 font-medium text-sm">{results}</p>
+        <p className="text-cool-grey mb-4 leading-relaxed">{description}</p>
+        <div className="bg-mint-green/10 p-4 rounded-lg border border-mint-green/20">
+          <p className="text-prism-blue font-medium text-sm">{results}</p>
         </div>
       </div>
     </div>
