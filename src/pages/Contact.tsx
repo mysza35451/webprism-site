@@ -77,6 +77,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
               name="contact"
               method="POST"
               data-netlify="true"
+              action="/" 
               onSubmit={handleSubmit}
               className="space-y-6"
             >

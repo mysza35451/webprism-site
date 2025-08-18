@@ -83,6 +83,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
           <form
             name="quote-request"
             method="POST"
+            action="/" 
             data-netlify="true"
             onSubmit={handleSubmit}
             className="space-y-4"
