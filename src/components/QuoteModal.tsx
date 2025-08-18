@@ -31,24 +31,23 @@ const QuoteModal = () => {
    * Prevents default, triggers Netlify form processing,
    * and shows a thank-you message before closing.
    */
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Quote request submitted:', formData);
-    setIsSubmitted(true);
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    // Reset modal after a brief delay
-    setTimeout(() => {
-      setIsOpen(false);
-      setIsSubmitted(false);
-      setFormData({
-        fullName: '',
-        email: '',
-        company: '',
-        service: '',
-        brief: '',
-      });
-    }, 2000);
-  };
+  // (optional) your checks here …
+
+  setIsSubmitted(true);
+
+  // IMPORTANT: perform the real POST
+  (e.currentTarget as HTMLFormElement).submit();
+
+  // (This reset will only run if you stay on the page. If you redirect, it won’t run—and that’s fine.)
+  setTimeout(() => {
+    setIsOpen(false);
+    setIsSubmitted(false);
+    setFormData({ fullName: '', email: '', company: '', service: '', brief: '' });
+  }, 2000);
+};
 
   /**
    * Update a single form field value.
