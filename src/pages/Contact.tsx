@@ -21,22 +21,29 @@ const Contact = () => {
    * - Displays toast feedback
    * - Resets form on success
    */
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
-  if (!formData.name || !formData.email || !formData.message) {
-    toast({ title: 'Please fill in all required fields', variant: 'destructive' });
-    return;
-  }
+  const form = e.currentTarget;
+  const data = new FormData(form);
 
-  toast({
-    title: 'Message sent successfully!',
-    description: "We'll get back to you within 24 hours.",
+  const res = await fetch('/', {
+    method: 'POST',
+    body: new URLSearchParams(data as any).toString(),
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   });
 
-  // IMPORTANT: perform the real POST that Netlify captures
-  (e.currentTarget as HTMLFormElement).submit();
+  if (res.ok) {
+    toast({
+      title: 'Message sent successfully!',
+      description: "We'll get back to you within 24 hours.",
+    });
+    form.reset();
+  } else {
+    toast({ title: 'Something went wrong', variant: 'destructive' });
+  }
 };
+
 
   /**
    * Update a field in formData
@@ -77,7 +84,6 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
               name="contact"
               method="POST"
               data-netlify="true"
-              action="/" 
               onSubmit={handleSubmit}
               className="space-y-6"
             >
